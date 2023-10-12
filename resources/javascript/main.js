@@ -35,6 +35,7 @@ addBtn.addEventListener("click", function (e) {
 
     let editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
+    editBtn.className = "edit__btn"
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
 

@@ -57,12 +57,16 @@ button {
   padding: 5px 15px;
   font-weight: 600;
   transition: ease-in 100ms;
-  flex-shrink: 0;
 }
 
 button:hover {
   background-color: black;
   color: var(--maingreen);
+}
+
+.edit__btn {
+  max-width: 55px;
+  padding-right: 30px;
 }
 
 .alert__space {
