@@ -8,6 +8,7 @@
   --mainmustard: #f1a208;
 }
 
+
 ::placeholder {
   color: var(--maingreen);
 }
@@ -56,6 +57,7 @@ button {
   padding: 5px 15px;
   font-weight: 600;
   transition: ease-in 100ms;
+  flex-shrink: 0;
 }
 
 button:hover {
@@ -63,10 +65,16 @@ button:hover {
   color: var(--maingreen);
 }
 
+.alert__space {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--mainmustard);
+}
 .contact__list {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
 .contact__list ul {
