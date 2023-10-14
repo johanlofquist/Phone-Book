@@ -53,7 +53,10 @@ addBtn.addEventListener("click", function (e) {
         e.target.parentNode.children[1].style.backgroundColor = "black" 
         e.target.parentNode.children[1].style.color = "#d3efbd" 
         e.target.parentNode.children[2].style.backgroundColor = "black" 
-        e.target.parentNode.children[2].style.color = "#d3efbd" 
+        e.target.parentNode.children[2].style.color = "#d3efbd"
+        editBtn.style.backgroundColor = "black" 
+        editBtn.style.color = "#d3efbd" 
+
 
       } else {
         if (contactInputName.value == "" || contactInputNumber.value == "") {
@@ -70,6 +73,8 @@ addBtn.addEventListener("click", function (e) {
           e.target.parentNode.children[1].style.color = "black" 
           e.target.parentNode.children[2].style.backgroundColor = "#d3efbd" 
           e.target.parentNode.children[2].style.color = "black" 
+          editBtn.style.backgroundColor = "#d3efbd" 
+          editBtn.style.color = "black" 
         }
       }
     });

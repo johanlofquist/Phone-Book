@@ -65,8 +65,8 @@ button:hover {
 }
 
 .edit__btn {
-  max-width: 55px;
-  padding-right: 30px;
+  /* max-width: 55px; */
+  width: 60px;
 }
 
 .alert__space {
