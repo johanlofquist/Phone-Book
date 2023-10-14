@@ -18,6 +18,9 @@ addBtn.addEventListener("click", function (e) {
     notAllowed();
   } else {
     let contactLi = document.createElement("li");
+    setTimeout(() => {
+      contactLi.id = "show";
+    }, 10);
     let contactInputName = document.createElement("input");
     contactInputName.type = "text";
     contactInputName.disabled = true;
@@ -96,5 +99,21 @@ function notAllowed() {
   alert.innerText = "Please enter name and number!";
   alertSpace.append(alert);
 }
+let phoneNumber = document.querySelector("#phone__number")
+let dropDown = document.querySelector(".emergency__numbers select")
+
+dropDown.addEventListener("change", function() {
+  if (dropDown.value == "Sweden") {
+    phoneNumber.innerText = "112"
+  } else if (dropDown.value == "USA") {
+    phoneNumber.innerText = "911"
+  } else if (dropDown.value == "Ghana") {
+    phoneNumber.innerText = "999"
+  } else if (dropDown.value == "Australia") {
+    phoneNumber.innerText = "000"
+  } else if (dropDown.value == "Colombia") {
+    phoneNumber.innerText = "123"
+  }
+})
 
 
