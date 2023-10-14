@@ -88,7 +88,7 @@ button:hover {
 }
 .contact__list ul li {
   margin-top: 5px;
-  transition: ease-in 150ms;
+  transition: ease-in 200ms;
   opacity: 0;
 }
 
