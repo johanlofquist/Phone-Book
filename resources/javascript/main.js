@@ -39,12 +39,17 @@ addBtn.addEventListener("click", function (e) {
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
 
-    editBtn.addEventListener("click", function () {
+    editBtn.addEventListener("click", function (e) {
       if (contactInputName.disabled === true) {
         contactInputName.disabled = false;
         contactInputNumber.disabled = false;
         contactInputInfo.disabled = false;
         editBtn.innerText = "Save";
+        e.target.parentNode.children[0].style.backgroundColor = "black" 
+        e.target.parentNode.children[0].style.color = "#d3efbd" 
+        e.target.parentNode.children[1].style.backgroundColor = "black" 
+        e.target.parentNode.children[1].style.color = "#d3efbd" 
+
       } else {
         if (contactInputName.value == "" || contactInputNumber.value == "") {
           notAllowed();
@@ -54,6 +59,10 @@ addBtn.addEventListener("click", function (e) {
           contactInputNumber.disabled = true;
           contactInputInfo.disabled = true;
           editBtn.innerText = "Edit";
+          e.target.parentNode.children[0].style.backgroundColor = "#d3efbd"
+          e.target.parentNode.children[0].style.color = "black"
+          e.target.parentNode.children[1].style.backgroundColor = "#d3efbd" 
+          e.target.parentNode.children[1].style.color = "black" 
         }
       }
     });
@@ -69,6 +78,8 @@ addBtn.addEventListener("click", function (e) {
     contactLi.append(editBtn);
     contactLi.append(deleteBtn);
   }
+  inputName.value = ""
+  inputNumber.value = ""
 });
 
 let alertSpace = document.querySelector(".alert__space");
@@ -80,3 +91,5 @@ function notAllowed() {
   alert.innerText = "Please enter name and number!";
   alertSpace.append(alert);
 }
+
+
