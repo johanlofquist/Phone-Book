@@ -38,7 +38,7 @@ addBtn.addEventListener("click", function (e) {
 
     let editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
-    editBtn.className = "edit__btn"
+    editBtn.className = "edit__btn";
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
 
@@ -48,16 +48,14 @@ addBtn.addEventListener("click", function (e) {
         contactInputNumber.disabled = false;
         contactInputInfo.disabled = false;
         editBtn.innerText = "Save";
-        e.target.parentNode.children[0].style.backgroundColor = "black" 
-        e.target.parentNode.children[0].style.color = "#d3efbd" 
-        e.target.parentNode.children[1].style.backgroundColor = "black" 
-        e.target.parentNode.children[1].style.color = "#d3efbd" 
-        e.target.parentNode.children[2].style.backgroundColor = "black" 
-        e.target.parentNode.children[2].style.color = "#d3efbd"
-        editBtn.style.backgroundColor = "black" 
-        editBtn.style.color = "#d3efbd" 
-
-
+        e.target.parentNode.children[0].style.backgroundColor = "black";
+        e.target.parentNode.children[0].style.color = "#d3efbd";
+        e.target.parentNode.children[1].style.backgroundColor = "black";
+        e.target.parentNode.children[1].style.color = "#d3efbd";
+        e.target.parentNode.children[2].style.backgroundColor = "black";
+        e.target.parentNode.children[2].style.color = "#d3efbd";
+        editBtn.style.backgroundColor = "black";
+        editBtn.style.color = "#d3efbd";
       } else {
         if (contactInputName.value == "" || contactInputNumber.value == "") {
           notAllowed();
@@ -67,14 +65,14 @@ addBtn.addEventListener("click", function (e) {
           contactInputNumber.disabled = true;
           contactInputInfo.disabled = true;
           editBtn.innerText = "Edit";
-          e.target.parentNode.children[0].style.backgroundColor = "#d3efbd"
-          e.target.parentNode.children[0].style.color = "black"
-          e.target.parentNode.children[1].style.backgroundColor = "#d3efbd" 
-          e.target.parentNode.children[1].style.color = "black" 
-          e.target.parentNode.children[2].style.backgroundColor = "#d3efbd" 
-          e.target.parentNode.children[2].style.color = "black" 
-          editBtn.style.backgroundColor = "#d3efbd" 
-          editBtn.style.color = "black" 
+          e.target.parentNode.children[0].style.backgroundColor = "#d3efbd";
+          e.target.parentNode.children[0].style.color = "black";
+          e.target.parentNode.children[1].style.backgroundColor = "#d3efbd";
+          e.target.parentNode.children[1].style.color = "black";
+          e.target.parentNode.children[2].style.backgroundColor = "#d3efbd";
+          e.target.parentNode.children[2].style.color = "black";
+          editBtn.style.removeProperty("background-color");
+          editBtn.style.removeProperty("color");
         }
       }
     });
@@ -90,9 +88,9 @@ addBtn.addEventListener("click", function (e) {
     contactLi.append(editBtn);
     contactLi.append(deleteBtn);
   }
-  inputName.value = ""
-  inputNumber.value = ""
-  inputInfo.value = ""
+  inputName.value = "";
+  inputNumber.value = "";
+  inputInfo.value = "";
 });
 
 let alertSpace = document.querySelector(".alert__space");
@@ -104,21 +102,19 @@ function notAllowed() {
   alert.innerText = "Please enter name and number!";
   alertSpace.append(alert);
 }
-let phoneNumber = document.querySelector("#phone__number")
-let dropDown = document.querySelector(".emergency__numbers select")
+let phoneNumber = document.querySelector("#phone__number");
+let dropDown = document.querySelector(".emergency__numbers select");
 
-dropDown.addEventListener("change", function() {
+dropDown.addEventListener("change", function () {
   if (dropDown.value == "Sweden") {
-    phoneNumber.innerText = "112"
+    phoneNumber.innerText = "112";
   } else if (dropDown.value == "USA") {
-    phoneNumber.innerText = "911"
+    phoneNumber.innerText = "911";
   } else if (dropDown.value == "Ghana") {
-    phoneNumber.innerText = "999"
+    phoneNumber.innerText = "999";
   } else if (dropDown.value == "Australia") {
-    phoneNumber.innerText = "000"
+    phoneNumber.innerText = "000";
   } else if (dropDown.value == "Colombia") {
-    phoneNumber.innerText = "123"
+    phoneNumber.innerText = "123";
   }
-})
-
-
+});
