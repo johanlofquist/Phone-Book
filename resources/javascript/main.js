@@ -113,11 +113,7 @@ dropDown.addEventListener("change", function () {
 });
 
 function checkIfEmpty(firstValue, secondValue) {
-  if(firstValue == "" || secondValue == "") {
-    return true
-  } else {
-    return false
-  }
+  return firstValue == "" || secondValue == ""
 }
 
 function notAllowed() {
