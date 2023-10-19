@@ -1,12 +1,12 @@
-let addBtn = document.querySelector("#add__btn");
-let resetBtn = document.querySelector("#reset__btn");
-let inputName = document.querySelector("#input__name");
-let inputNumber = document.querySelector("#input__number");
-let inputInfo = document.querySelector("#input__info");
-let contactList = document.querySelector("ul");
-let alertSpace = document.querySelector(".alert__space");
-let phoneNumber = document.querySelector("#phone__number");
-let dropDown = document.querySelector(".emergency__numbers select");
+const addBtn = document.querySelector("#add__btn");
+const resetBtn = document.querySelector("#reset__btn");
+const inputName = document.querySelector("#input__name");
+const inputNumber = document.querySelector("#input__number");
+const inputInfo = document.querySelector("#input__info");
+const contactList = document.querySelector("ul");
+const alertSpace = document.querySelector(".alert__space");
+const phoneNumber = document.querySelector("#phone__number");
+const dropDown = document.querySelector(".emergency__numbers select");
 
 resetBtn.addEventListener("click", clearContacts);
 
