@@ -1,16 +1,18 @@
 let addBtn = document.querySelector("#add__btn");
 let resetBtn = document.querySelector("#reset__btn");
-
-resetBtn.addEventListener("click", function (e) {
-  contactList.innerHTML = "";
-});
-
 let inputName = document.querySelector("#input__name");
 let inputNumber = document.querySelector("#input__number");
 let inputInfo = document.querySelector("#input__info");
-
 let contactList = document.querySelector("ul");
-let contacts = [];
+let alertSpace = document.querySelector(".alert__space");
+let phoneNumber = document.querySelector("#phone__number");
+let dropDown = document.querySelector(".emergency__numbers select");
+
+resetBtn.addEventListener("click", clearContacts);
+
+function clearContacts() {
+contactList.innerHTML = "";
+}
 
 addBtn.addEventListener("click", function (e) {
   alertSpace.innerHTML = "";
@@ -39,10 +41,11 @@ addBtn.addEventListener("click", function (e) {
     let editBtn = document.createElement("button");
     editBtn.innerText = "Edit";
     editBtn.className = "edit__btn";
-    let deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Delete";
 
-    editBtn.addEventListener("click", function (e) {
+    
+    editBtn.addEventListener("click", editContact);
+    
+    function editContact(e) {
       if (contactInputName.disabled === true) {
         contactInputName.disabled = false;
         contactInputNumber.disabled = false;
@@ -75,12 +78,15 @@ addBtn.addEventListener("click", function (e) {
           editBtn.style.removeProperty("color");
         }
       }
-    });
-
-    deleteBtn.addEventListener("click", function (e) {
+    }
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    
+    deleteBtn.addEventListener("click", deleteContact);
+    
+    function deleteContact(e) {
       e.target.parentNode.innerHTML = "";
-    });
-
+    }
     contactList.append(contactLi);
     contactLi.append(contactInputName);
     contactLi.append(contactInputNumber);
@@ -92,18 +98,6 @@ addBtn.addEventListener("click", function (e) {
   inputNumber.value = "";
   inputInfo.value = "";
 });
-
-let alertSpace = document.querySelector(".alert__space");
-
-function notAllowed() {
-  alertSpace.innerHTML = "";
-  let alert = document.createElement("h4");
-  alert.style.margin = "0";
-  alert.innerText = "Please enter name and number!";
-  alertSpace.append(alert);
-}
-let phoneNumber = document.querySelector("#phone__number");
-let dropDown = document.querySelector(".emergency__numbers select");
 
 dropDown.addEventListener("change", function () {
   if (dropDown.value == "Sweden") {
@@ -118,3 +112,11 @@ dropDown.addEventListener("change", function () {
     phoneNumber.innerText = "123";
   }
 });
+
+function notAllowed() {
+  alertSpace.innerHTML = "";
+  let alert = document.createElement("h4");
+  alert.style.margin = "0";
+  alert.innerText = "Please enter name and number!";
+  alertSpace.append(alert);
+}
