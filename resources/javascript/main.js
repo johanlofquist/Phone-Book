@@ -42,10 +42,8 @@ addBtn.addEventListener("click", function (e) {
     editBtn.innerText = "Edit";
     editBtn.className = "edit__btn";
 
-    
     editBtn.addEventListener("click", editContact);
     
-
     function editContact(e) {
       if (contactInputName.disabled === true) {
         contactInputName.disabled = false;
