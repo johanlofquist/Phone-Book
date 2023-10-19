@@ -16,7 +16,7 @@ contactList.innerHTML = "";
 
 addBtn.addEventListener("click", function (e) {
   alertSpace.innerHTML = "";
-  if (inputName.value == "" || inputNumber.value == "") {
+  if (checkIfEmpty(inputName.value, inputNumber.value)) {
     notAllowed();
   } else {
     let contactLi = document.createElement("li");
@@ -45,6 +45,7 @@ addBtn.addEventListener("click", function (e) {
     
     editBtn.addEventListener("click", editContact);
     
+
     function editContact(e) {
       if (contactInputName.disabled === true) {
         contactInputName.disabled = false;
@@ -60,7 +61,7 @@ addBtn.addEventListener("click", function (e) {
         editBtn.style.backgroundColor = "black";
         editBtn.style.color = "#d3efbd";
       } else {
-        if (contactInputName.value == "" || contactInputNumber.value == "") {
+        if (checkIfEmpty(contactInputName.value, contactInputNumber.value)) {
           notAllowed();
         } else {
           alertSpace.innerHTML = "";
@@ -112,6 +113,14 @@ dropDown.addEventListener("change", function () {
     phoneNumber.innerText = "123";
   }
 });
+
+function checkIfEmpty(firstValue, secondValue) {
+  if(firstValue == "" || secondValue == "") {
+    return true
+  } else {
+    return false
+  }
+}
 
 function notAllowed() {
   alertSpace.innerHTML = "";
