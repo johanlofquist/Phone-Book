@@ -10,10 +10,6 @@ const dropDown = document.querySelector(".emergency__numbers select");
 
 resetBtn.addEventListener("click", clearContacts);
 
-function clearContacts() {
-contactList.innerHTML = "";
-}
-
 addBtn.addEventListener("click", function (e) {
   alertSpace.innerHTML = "";
   if (checkIfEmpty(inputName.value, inputNumber.value)) {
@@ -43,49 +39,11 @@ addBtn.addEventListener("click", function (e) {
     editBtn.className = "edit__btn";
 
     editBtn.addEventListener("click", editContact);
-    
-    function editContact(e) {
-      if (contactInputName.disabled === true) {
-        contactInputName.disabled = false;
-        contactInputNumber.disabled = false;
-        contactInputInfo.disabled = false;
-        editBtn.innerText = "Save";
-        e.target.parentNode.children[0].style.backgroundColor = "black";
-        e.target.parentNode.children[0].style.color = "#d3efbd";
-        e.target.parentNode.children[1].style.backgroundColor = "black";
-        e.target.parentNode.children[1].style.color = "#d3efbd";
-        e.target.parentNode.children[2].style.backgroundColor = "black";
-        e.target.parentNode.children[2].style.color = "#d3efbd";
-        editBtn.style.backgroundColor = "black";
-        editBtn.style.color = "#d3efbd";
-      } else {
-        if (checkIfEmpty(contactInputName.value, contactInputNumber.value)) {
-          notAllowed();
-        } else {
-          alertSpace.innerHTML = "";
-          contactInputName.disabled = true;
-          contactInputNumber.disabled = true;
-          contactInputInfo.disabled = true;
-          editBtn.innerText = "Edit";
-          e.target.parentNode.children[0].style.backgroundColor = "#d3efbd";
-          e.target.parentNode.children[0].style.color = "black";
-          e.target.parentNode.children[1].style.backgroundColor = "#d3efbd";
-          e.target.parentNode.children[1].style.color = "black";
-          e.target.parentNode.children[2].style.backgroundColor = "#d3efbd";
-          e.target.parentNode.children[2].style.color = "black";
-          editBtn.style.removeProperty("background-color");
-          editBtn.style.removeProperty("color");
-        }
-      }
-    }
+
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
-    
     deleteBtn.addEventListener("click", deleteContact);
-    
-    function deleteContact(e) {
-      e.target.parentNode.innerHTML = "";
-    }
+
     contactList.append(contactLi);
     contactLi.append(contactInputName);
     contactLi.append(contactInputNumber);
@@ -93,9 +51,7 @@ addBtn.addEventListener("click", function (e) {
     contactLi.append(editBtn);
     contactLi.append(deleteBtn);
   }
-  inputName.value = "";
-  inputNumber.value = "";
-  inputInfo.value = "";
+  clearInputFields();
 });
 
 dropDown.addEventListener("change", function () {
@@ -112,8 +68,18 @@ dropDown.addEventListener("change", function () {
   }
 });
 
+function clearInputFields() {
+  inputName.value = "";
+  inputNumber.value = "";
+  inputInfo.value = "";
+}
+
+function clearContacts() {
+  contactList.innerHTML = "";
+}
+
 function checkIfEmpty(firstValue, secondValue) {
-  return firstValue == "" || secondValue == ""
+  return firstValue == "" || secondValue == "";
 }
 
 function notAllowed() {
@@ -122,4 +88,48 @@ function notAllowed() {
   alert.style.margin = "0";
   alert.innerText = "Please enter name and number!";
   alertSpace.append(alert);
+}
+
+function deleteContact(e) {
+  e.target.parentNode.innerHTML = "";
+}
+
+function editContact(e) {
+  if (e.target.parentNode.children[0].disabled === true) {
+    e.target.parentNode.children[0].disabled = false;
+    e.target.parentNode.children[1].disabled = false;
+    e.target.parentNode.children[2].disabled = false;
+    e.target.innerText = "Save";
+    e.target.parentNode.children[0].style.backgroundColor = "black";
+    e.target.parentNode.children[0].style.color = "#d3efbd";
+    e.target.parentNode.children[1].style.backgroundColor = "black";
+    e.target.parentNode.children[1].style.color = "#d3efbd";
+    e.target.parentNode.children[2].style.backgroundColor = "black";
+    e.target.parentNode.children[2].style.color = "#d3efbd";
+    e.target.style.backgroundColor = "black";
+    e.target.style.color = "#d3efbd";
+  } else {
+    if (
+      checkIfEmpty(
+        e.target.parentNode.children[0].value,
+        e.target.parentNode.children[1].value
+      )
+    ) {
+      notAllowed();
+    } else {
+      alertSpace.innerHTML = "";
+      e.target.parentNode.children[0].disabled = true;
+      e.target.parentNode.children[1].disabled = true;
+      e.target.parentNode.children[2].disabled = true;
+      e.target.innerText = "Edit";
+      e.target.parentNode.children[0].style.backgroundColor = "#d3efbd";
+      e.target.parentNode.children[0].style.color = "black";
+      e.target.parentNode.children[1].style.backgroundColor = "#d3efbd";
+      e.target.parentNode.children[1].style.color = "black";
+      e.target.parentNode.children[2].style.backgroundColor = "#d3efbd";
+      e.target.parentNode.children[2].style.color = "black";
+      e.target.style.removeProperty("background-color");
+      e.target.style.removeProperty("color");
+    }
+  }
 }
