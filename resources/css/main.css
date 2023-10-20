@@ -8,7 +8,6 @@
   --mainmustard: #f1a208;
 }
 
-
 ::placeholder {
   color: var(--maingreen);
 }
@@ -75,6 +74,7 @@ button:hover {
   align-items: center;
   color: var(--mainmustard);
 }
+
 .contact__list {
   display: flex;
   justify-content: center;
@@ -85,6 +85,7 @@ button:hover {
   margin: 0;
   list-style-type: none;
 }
+
 .contact__list ul li {
   margin-top: 5px;
   transition: ease-in 200ms;
@@ -109,6 +110,7 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+
 .lower__buttons button {
   margin-top: 30px;
 }
@@ -124,10 +126,12 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
 .emergency__numbers p {
   color: var(--mainblue);
   margin: 0;
 }
+
 .emergency__numbers select {
   color: var(--maingreen);
   font-size: 16px;
@@ -138,6 +142,7 @@ button:hover {
   background-color: var(--mainblue);
   margin-top: 5px;
 }
+
 .emergency__numbers h1 {
   color: black;
   padding: 5px;
