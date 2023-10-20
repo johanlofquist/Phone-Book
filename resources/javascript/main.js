@@ -9,52 +9,10 @@ const phoneNumber = document.querySelector("#phone__number");
 const dropDown = document.querySelector(".emergency__numbers select");
 
 resetBtn.addEventListener("click", clearContacts);
+addBtn.addEventListener("click", addContact);
+dropDown.addEventListener("change", checkDropDown);
 
-addBtn.addEventListener("click", function (e) {
-  alertSpace.innerHTML = "";
-  if (checkIfEmpty(inputName.value, inputNumber.value)) {
-    notAllowed();
-  } else {
-    let contactLi = document.createElement("li");
-    setTimeout(() => {
-      contactLi.id = "show";
-    }, 10);
-    let contactInputName = document.createElement("input");
-    contactInputName.type = "text";
-    contactInputName.disabled = true;
-    contactInputName.value = inputName.value;
-
-    let contactInputNumber = document.createElement("input");
-    contactInputNumber.type = "text";
-    contactInputNumber.disabled = true;
-    contactInputNumber.value = inputNumber.value;
-
-    let contactInputInfo = document.createElement("input");
-    contactInputInfo.type = "text";
-    contactInputInfo.disabled = true;
-    contactInputInfo.value = inputInfo.value;
-
-    let editBtn = document.createElement("button");
-    editBtn.innerText = "Edit";
-    editBtn.className = "edit__btn";
-
-    editBtn.addEventListener("click", editContact);
-
-    let deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Delete";
-    deleteBtn.addEventListener("click", deleteContact);
-
-    contactList.append(contactLi);
-    contactLi.append(contactInputName);
-    contactLi.append(contactInputNumber);
-    contactLi.append(contactInputInfo);
-    contactLi.append(editBtn);
-    contactLi.append(deleteBtn);
-  }
-  clearInputFields();
-});
-
-dropDown.addEventListener("change", function () {
+function checkDropDown() {
   if (dropDown.value == "Sweden") {
     phoneNumber.innerText = "112";
   } else if (dropDown.value == "USA") {
@@ -66,7 +24,7 @@ dropDown.addEventListener("change", function () {
   } else if (dropDown.value == "Colombia") {
     phoneNumber.innerText = "123";
   }
-});
+}
 
 function clearInputFields() {
   inputName.value = "";
@@ -132,4 +90,48 @@ function editContact(e) {
       e.target.style.removeProperty("color");
     }
   }
+}
+
+function addContact() {
+  alertSpace.innerHTML = "";
+  if (checkIfEmpty(inputName.value, inputNumber.value)) {
+    notAllowed();
+  } else {
+    let contactLi = document.createElement("li");
+    setTimeout(() => {
+      contactLi.id = "show";
+    }, 10);
+    let contactInputName = document.createElement("input");
+    contactInputName.type = "text";
+    contactInputName.disabled = true;
+    contactInputName.value = inputName.value;
+
+    let contactInputNumber = document.createElement("input");
+    contactInputNumber.type = "text";
+    contactInputNumber.disabled = true;
+    contactInputNumber.value = inputNumber.value;
+
+    let contactInputInfo = document.createElement("input");
+    contactInputInfo.type = "text";
+    contactInputInfo.disabled = true;
+    contactInputInfo.value = inputInfo.value;
+
+    let editBtn = document.createElement("button");
+    editBtn.innerText = "Edit";
+    editBtn.className = "edit__btn";
+
+    editBtn.addEventListener("click", editContact);
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.addEventListener("click", deleteContact);
+
+    contactList.append(contactLi);
+    contactLi.append(contactInputName);
+    contactLi.append(contactInputNumber);
+    contactLi.append(contactInputInfo);
+    contactLi.append(editBtn);
+    contactLi.append(deleteBtn);
+  }
+  clearInputFields();
 }
